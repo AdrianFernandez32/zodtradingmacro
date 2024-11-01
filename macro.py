@@ -16,7 +16,6 @@ def set_stop_key(key):
 def stop_macro_set():
     global stop_macro
     stop_macro = True
-    print(f"Macro detenido por tecla {stop_key}")
 
 def move_cursor_relative(dx, dy):
     # Obtiene la posición actual del cursor
