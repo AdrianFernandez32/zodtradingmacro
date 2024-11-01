@@ -1,31 +1,31 @@
 import tkinter as tk
 from tkinter import messagebox
 import threading
-from macro import run_macro, set_stop_key  # Importa la función del macro y la función para establecer la tecla de detención
+from macro import run_macro, set_stop_key  # Import macro function and function to set the stop key
 
-# Cálculo del tiempo de rotura basado en el material y encantamiento
+# Calculate break time based on material and enchantment
 def calculate_break_time(material, efficiency_level):
     base_times = {
-        "Madera": 1.9,
-        "Piedra": 0.95,
-        "Hierro": 0.65,
-        "Diamante": 0.5,
+        "Wood": 1.9,
+        "Stone": 0.95,
+        "Iron": 0.65,
+        "Diamond": 0.5,
         "Netherite": 0.45,
-        "Oro": 0.35
+        "Gold": 0.35
     }
     efficiency_multipliers = {
-        "Sin Encantamiento": 1.0,
-        "Eficiencia I": 1.25,
-        "Eficiencia II": 1.3,
-        "Eficiencia III": 1.35,
-        "Eficiencia IV": 1.4,
-        "Eficiencia V": 1.5
+        "No Enchantment": 1.0,
+        "Efficiency I": 1.25,
+        "Efficiency II": 1.3,
+        "Efficiency III": 1.35,
+        "Efficiency IV": 1.4,
+        "Efficiency V": 1.5
     }
     base_time = base_times.get(material, 1.15)
     multiplier = efficiency_multipliers.get(efficiency_level, 1.0)
     return base_time / multiplier
 
-# Función para iniciar el macro desde la UI
+# Function to start the macro from the UI
 def start_macro():
     try:
         material = material_var.get()
@@ -33,53 +33,53 @@ def start_macro():
         delay = float(delay_entry.get())
         stop_key = stop_key_var.get()
 
-        # Configura la tecla de detención
+        # Set the stop key
         set_stop_key(stop_key)
 
-        # Calcula el tiempo de rotura del atril
+        # Calculate the break time for the lectern
         break_time = calculate_break_time(material, efficiency_level)
         
-        messagebox.showinfo("Macro", f"El macro ha comenzado con el hacha de {material} y {efficiency_level}. Usa {stop_key} para detenerlo.")
-        # Llama a la función del macro en un hilo
+        messagebox.showinfo("Macro", f"The macro has started with the {material} axe and {efficiency_level}. Use {stop_key} to stop it.")
+        # Start the macro function in a separate thread
         macro_thread = threading.Thread(target=run_macro, args=(break_time, delay))
-        macro_thread.start()  # Inicia el macro en un hilo separado
+        macro_thread.start()  # Start the macro in a separate thread
     except ValueError:
-        messagebox.showerror("Error", "Por favor ingresa valores válidos.")
+        messagebox.showerror("Error", "Please enter valid values.")
 
-# Configuración de la UI con tkinter
+# UI setup with tkinter
 root = tk.Tk()
 root.title("Minecraft Macro")
 root.geometry("300x300")
 
-# Selección de tipo de hacha
-tk.Label(root, text="Material del Hacha:").pack()
-material_var = tk.StringVar(value="Madera")
-material_options = ["Madera", "Piedra", "Hierro", "Diamante", "Netherite"]
+# Axe material selection
+tk.Label(root, text="Axe Material:").pack()
+material_var = tk.StringVar(value="Wood")
+material_options = ["Wood", "Stone", "Iron", "Diamond", "Netherite"]
 material_menu = tk.OptionMenu(root, material_var, *material_options)
 material_menu.pack()
 
-# Selección de encantamiento
-tk.Label(root, text="Encantamiento:").pack()
-efficiency_var = tk.StringVar(value="Sin Encantamiento")
-efficiency_options = ["Sin Encantamiento", "Eficiencia I", "Eficiencia II", "Eficiencia III", "Eficiencia IV", "Eficiencia V"]
+# Enchantment selection
+tk.Label(root, text="Enchantment:").pack()
+efficiency_var = tk.StringVar(value="No Enchantment")
+efficiency_options = ["No Enchantment", "Efficiency I", "Efficiency II", "Efficiency III", "Efficiency IV", "Efficiency V"]
 efficiency_menu = tk.OptionMenu(root, efficiency_var, *efficiency_options)
 efficiency_menu.pack()
 
-# Selección de la tecla de detención
-tk.Label(root, text="Tecla de detención:").pack()
+# Stop key selection
+tk.Label(root, text="Stop Key:").pack()
 stop_key_var = tk.StringVar(value="F10")
 stop_key_options = ["backspace", "enter", "tab"] + [f"f{i}" for i in range(1, 13)]
 stop_key_menu = tk.OptionMenu(root, stop_key_var, *stop_key_options)
 stop_key_menu.pack()
 
-# Tiempo de espera para revisar el encantamiento
-tk.Label(root, text="Tiempo de espera (s):").pack()
+# Delay for checking enchantment
+tk.Label(root, text="Delay (s):").pack()
 delay_entry = tk.Entry(root)
 delay_entry.pack()
 
-# Botón para iniciar el macro
-start_button = tk.Button(root, text="Iniciar Macro", command=start_macro)
+# Button to start the macro
+start_button = tk.Button(root, text="Start Macro", command=start_macro)
 start_button.pack()
 
-# Loop de tkinter
+# tkinter loop
 root.mainloop()
