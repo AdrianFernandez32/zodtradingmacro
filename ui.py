@@ -46,6 +46,7 @@ def start_macro():
         macro_thread.start()  # Start the macro in a separate thread
     except ValueError:
         messagebox.showerror("Error", "Please enter valid values.")
+    
 
 # UI setup with tkinter
 root = tk.Tk()
