@@ -30,7 +30,9 @@ def run_macro(break_time, delay):
     # Initialization
     time.sleep(3)
     pyautogui.press('e')
+    keyboard.release('e')
     pyautogui.press('e')
+    keyboard.release('e')
     
     while not stop_macro:
         pyautogui.mouseDown(button='left')  # Start holding the left mouse button
@@ -50,5 +52,5 @@ def run_macro(break_time, delay):
         time.sleep(delay / 2)
         move_cursor_relative(0, 35)
         time.sleep(delay / 2)  # Wait to view the enchantment
-        pyautogui.press('esce')  # Close the menu
+        pyautogui.press('esc')  # Close the menu
         time.sleep(0.5)  # Wait before repeating
