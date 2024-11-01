@@ -65,17 +65,17 @@ efficiency_options = ["Sin Encantamiento", "Eficiencia I", "Eficiencia II", "Efi
 efficiency_menu = tk.OptionMenu(root, efficiency_var, *efficiency_options)
 efficiency_menu.pack()
 
-# Tiempo de espera para revisar el encantamiento
-tk.Label(root, text="Tiempo de espera (s):").pack()
-delay_entry = tk.Entry(root)
-delay_entry.pack()
-
 # Selección de la tecla de detención
 tk.Label(root, text="Tecla de detención:").pack()
 stop_key_var = tk.StringVar(value="F10")
 stop_key_options = ["backspace", "enter", "tab"] + [f"f{i}" for i in range(1, 13)]
 stop_key_menu = tk.OptionMenu(root, stop_key_var, *stop_key_options)
 stop_key_menu.pack()
+
+# Tiempo de espera para revisar el encantamiento
+tk.Label(root, text="Tiempo de espera (s):").pack()
+delay_entry = tk.Entry(root)
+delay_entry.pack()
 
 # Botón para iniciar el macro
 start_button = tk.Button(root, text="Iniciar Macro", command=start_macro)
