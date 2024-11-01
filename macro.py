@@ -50,6 +50,5 @@ def run_macro(break_time, delay):
         time.sleep(delay / 2)
         move_cursor_relative(0, 35)
         time.sleep(delay / 2)  # Wait to view the enchantment
-        
-        pyautogui.press('e')  # Close the menu
+        pyautogui.press('esce')  # Close the menu
         time.sleep(0.5)  # Wait before repeating
