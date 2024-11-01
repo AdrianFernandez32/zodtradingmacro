@@ -6,12 +6,13 @@ from macro import run_macro, set_stop_key  # Import macro function and function 
 # Calculate break time based on material and enchantment
 def calculate_break_time(material, efficiency_level):
     base_times = {
-        "Wood": 1.9,
-        "Stone": 0.95,
-        "Iron": 0.65,
-        "Diamond": 0.5,
-        "Netherite": 0.45,
-        "Gold": 0.35
+        "Wood": 2,
+        "Stone": 1,
+        "Iron": 0.75,
+        "Diamond": 0.6,
+        "Netherite": 0.55,
+        "Gold": 0.45,
+        "Raw Salmon": 3.7
     }
     efficiency_multipliers = {
         "No Enchantment": 1.0,
@@ -48,7 +49,7 @@ def start_macro():
 
 # UI setup with tkinter
 root = tk.Tk()
-root.title("Minecraft Macro")
+root.title("Zod's Trading macro")
 root.geometry("300x300")
 
 # Axe material selection
