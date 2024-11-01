@@ -54,4 +54,7 @@ Now you can start the macro. When it starts, you'll have 3 seconds to switch to 
 When stopping the macro, it must complete the loop to stop fully. So DON'T PANIC – once you find the perfect enchantment, press the stop key and wait until the macro closes the villager's menu.
 
 ## Notes
+### Next steps
+I'll be working on making this automatic, which will allow you to stay idle and choose which enchantments you want, stopping the loop once it finds them. Everything will remain in vanilla.
+
 Enjoy! If you’d like to thank me, you can follow or subscribe to my Twitch channel: https://www.twitch.tv/imcapitanzod 🐱‍👤
