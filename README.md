@@ -1,5 +1,7 @@
 # Zod's Trading Macro
 The executable is located inside the dist folder.
+## Patch notes 1.1v
+- Fixed error where it didn't exit from the villager menu. Fixed it by replacing "press" function by "hotkey"
 ## Prerequisites
 - Gameplay User Interface scale (GUI Scale): 2
 
