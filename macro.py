@@ -33,6 +33,10 @@ def run_macro(break_time, delay):
     # Initialization
     time.sleep(3)
     print("Starting macro...")
+    pyautogui.press('w')
+    print('moved with w')
+    pyautogui.press('shift')
+    print("shifted")
     pyautogui.press('e')
     pyautogui.press('e')
     
@@ -59,7 +63,7 @@ def run_macro(break_time, delay):
         move_cursor_relative(0, 35)
         time.sleep(delay / 2)  # Wait to view the enchantment
         
-        pyautogui.press('esc')  # Close the menu
+        pyautogui.press('escape')  # Close the menu
         print("pressed esc")
         time.sleep(0.5)  # Wait before repeating
 
