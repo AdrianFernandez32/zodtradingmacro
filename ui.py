@@ -6,13 +6,13 @@ from macro import run_macro, set_stop_key  # Import macro function and function 
 # Calculate break time based on material and enchantment
 def calculate_break_time(material, efficiency_level):
     base_times = {
-        "Wood": 2,
-        "Stone": 1,
-        "Iron": 0.75,
-        "Diamond": 0.6,
-        "Netherite": 0.55,
-        "Gold": 0.45,
-        "Raw Salmon": 3.7
+        "Wood": 2.1,
+        "Stone": 1.1,
+        "Iron": 0.85,
+        "Diamond": 0.7,
+        "Netherite": 0.65,
+        "Gold": 0.55,
+        "Raw Salmon": 3.8
     }
     efficiency_multipliers = {
         "No Enchantment": 1.0,
@@ -56,7 +56,7 @@ root.geometry("300x300")
 # Axe material selection
 tk.Label(root, text="Axe Material:").pack()
 material_var = tk.StringVar(value="Wood")
-material_options = ["Wood", "Stone", "Iron", "Diamond", "Netherite"]
+material_options = ["Wood", "Stone", "Iron", "Diamond", "Netherite", "Gold", "Raw Salmon"]
 material_menu = tk.OptionMenu(root, material_var, *material_options)
 material_menu.pack()
 
